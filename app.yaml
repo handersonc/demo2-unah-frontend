@@ -1,0 +1,30 @@
+runtime: python27
+threadsafe: yes
+
+env_variables:
+
+handlers:
+
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: dist/demo2-unah-frontend/\1
+  upload: dist/demo2-unah-frontend/(.*\.css)
+
+- url: /(.*\.js)
+  mime_type: text/javascript
+  static_files: dist/demo2-unah-frontend/\1
+  upload: dist/demo2-unah-frontend/(.*\.js)
+
+- url: .*
+  static_files: dist/demo2-unah-frontend/index.html
+  upload: dist/demo2-unah-frontend/index.html
+
+skip_files:
+  - e2e/
+  - node_modules/
+  - src/
+  - ^(.*/)?\..*$
+  - ^(.*/)?.*\.json$
+  - ^(.*/)?.*\.md$
+  - ^(.*/)?.*\.yaml$
+  - ^LICENSE
